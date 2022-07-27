@@ -25,7 +25,7 @@ public class TestTesting {
 		o.addArguments("--incognito");
 		driver = new ChromeDriver(o);
 		driver.manage().window().maximize();
-		driver.get("https://google.com");
+		driver.get("localhost:3000");
 		
 		wait = Duration.ofSeconds(10);
 		
