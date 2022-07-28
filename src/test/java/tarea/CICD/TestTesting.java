@@ -13,24 +13,22 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 public class TestTesting {
-	
+
 	private WebDriver driver;
 	private Duration wait;
 
 	@Before
 	public void setUp() throws Exception {
-		
-		System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromeDriver/chromedriver.exe");
+
+		System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromeDriver/chromedriver");
 		ChromeOptions o = new ChromeOptions();
 		o.addArguments("--incognito");
 		driver = new ChromeDriver(o);
 		driver.manage().window().maximize();
 		driver.get("localhost:3000");
-		
+
 		wait = Duration.ofSeconds(10);
-		
-		
-		
+
 	}
 
 	@After
@@ -40,14 +38,14 @@ public class TestTesting {
 
 	@Test
 	public void test() {
-		
+
 		WebElement searchbox = driver.findElement(By.name("q"));
 		searchbox.clear();
 		searchbox.sendKeys("Probando Selenium");
 		searchbox.submit();
-		
+
 		driver.manage().timeouts().implicitlyWait(wait);
-		
+
 		assertEquals("Probando Selenium - Buscar con Google", driver.getTitle());
 	}
 
