@@ -20,7 +20,7 @@ public class TestTesting {
 	@Before
 	public void setUp() throws Exception {
 
-		System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromeDriver/chromedriver");
+		System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
 		ChromeOptions o = new ChromeOptions();
 		o.addArguments("--incognito");
 		driver = new ChromeDriver(o);
