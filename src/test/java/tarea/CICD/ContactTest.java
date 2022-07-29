@@ -129,8 +129,8 @@ public class ContactTest {
 
 		driver.manage().timeouts().implicitlyWait(wait);
 
-		WebElement nameInTable = tableBody.findElement(By.xpath("//tr/td[1]"));
-		assertEquals("DiegoE", nameInTable.getText());
+		tableBody = driver.findElement(By.id("tableBody"));
+		assertEquals("DiegoE", tableBody.findElement(By.xpath("//tr/td[1]")).getText());
 
 		WebElement deleteButton = driver
 				.findElement(By.xpath("//html/body/div/div/div[1]/div/div/table/tbody/tr/td[6]/button[2]"));
